@@ -9,7 +9,7 @@ interface ITaxiTariffCard {
 
 const TaxiTariffCard: FC<ITaxiTariffCard> = ({name, image}) => {
   return (
-    <div className='flex flex-col items-center py-3 px-2 bg-zinc-100 rounded'>
+    <div className='flex flex-col items-center py-3 px-2 bg-zinc-100 rounded-xl'>
       <div className='h-7 w-20 rounded overflow-hidden'>
         <Image src={image} className='h-full w-full' alt={name} height={40} width={150}/>
       </div>

@@ -1,5 +1,5 @@
-import {create} from "zustand";
-import {TypeFrom, TypeMapStore} from "@/store/types";
+import { create } from "zustand";
+import { TypeFrom, TypeMapStore } from "@/store/types";
 
 
 export const useMapStore = create<TypeMapStore>((set) => ({
@@ -26,9 +26,11 @@ export const useMapStore = create<TypeMapStore>((set) => ({
   })),
   cancelTrip: () => set(state => ({
     directionResponse: state.directionResponse = null,
-    from: state.from = {location: {}, address: ''},
-    to: state.to = {location: {}, address: ''},
-    process: state.process = 'cancel'
+    from: state.from = { location: {}, address: '' },
+    to: state.to = { location: {}, address: '' },
+    process: state.process = 'cancel',
+    status: state.status = 'pending'
+
   })),
   setProcess: (process_state) => set(state => ({
     process: state.process = process_state

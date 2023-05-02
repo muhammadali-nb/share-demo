@@ -21,7 +21,7 @@ const TaxiTripPrice: FC = () => {
       <div className='flex'>
         <p className='font-medium'>Price:<span> {taxiCost()}</span></p>
       </div>
-      <button className='bg-red-400 text-white px-3 py-1 text-sm rounded font-medium' onClick={cancelTrip}>
+      <button className='bg-red-400 text-white px-3 py-1 text-sm rounded-md font-medium' onClick={cancelTrip}>
         Cancel
       </button>
     </div>

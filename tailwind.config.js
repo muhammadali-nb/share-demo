@@ -10,22 +10,25 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        SairaSemiCondensed: ["Saira Semi Condensed", "sans-serif"],
+      },
       width: {
-        '400': '400px',
-        '600': '600px',
-        '800': '800px'
+        400: "400px",
+        600: "600px",
+        800: "800px",
       },
       height: {
-        '400': '400px',
-        '600': '600px',
-        '800': '800px'
+        400: "400px",
+        600: "600px",
+        800: "800px",
       },
       inset: {
-        '44%': '44%',
-        '45%': '45%',
-        '46%': '46%'
-      }
+        "44%": "44%",
+        "45%": "45%",
+        "46%": "46%",
+      },
     },
   },
   plugins: [],
-}
+};

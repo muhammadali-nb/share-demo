@@ -26,7 +26,7 @@ const TaxiOrderSidebar = () => {
       )}>
       <div
         className={cn('absolute inset-x-[45%] -top-7 h-10 w-10 rounded-full bg-blue-400 py-2 px-2 transition-all duration-500',
-          {'hidden': process === 'start'},
+          {'hidden': process === 'start' || process === 'cancel'},
           {'block': process === 'order'},
           {'rotate-180': process === 'check-route'}
         )}
