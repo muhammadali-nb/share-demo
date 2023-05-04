@@ -4,7 +4,7 @@ import { ITypeCard } from "@/components/ui/service-type-card";
 
 const UserOperationsCard: FC<ITypeCard> = ({ title, image }) => {
 	return (
-		<div className="bg-zinc-100 rounded-xl py-3 flex flex-col items-center ">
+		<div className="bg-zinc-100 rounded-xl py-4 flex flex-col items-center ">
 			<div>
 				<Image src={image} alt={title} width={28} height={28} />
 			</div>
