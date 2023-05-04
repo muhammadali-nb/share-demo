@@ -8,7 +8,9 @@ const UserOperationsCard: FC<ITypeCard> = ({ title, image }) => {
 			<div>
 				<Image src={image} alt={title} width={28} height={28} />
 			</div>
-			<h3 className="mt-1 font-medium text-xl first-letter:text-blue-400">{title}</h3>
+			<h3 className="mt-1 font-medium text-medium first-letter:text-blue-400">
+				{title}
+			</h3>
 		</div>
 	);
 };
