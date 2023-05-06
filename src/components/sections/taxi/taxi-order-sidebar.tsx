@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "@/components/ui/container";
 import TaxiAddressForm from "@/components/sections/taxi/taxi-address-form";
 import TaxiTariffs from "@/components/sections/taxi/taxi-tariffs";
@@ -9,47 +9,47 @@ import { useMapStore } from "@/store/map-store";
 import Image from "next/image";
 
 const TaxiOrderSidebar = () => {
-  const process = useMapStore((state) => state.process);
-  const setProcess = useMapStore((state) => state.setProcess);
+	const process = useMapStore((state) => state.process);
+	const setProcess = useMapStore((state) => state.setProcess);
+	const [deposit, setDeposit] = useState<number>(2); // start 2 && comfort 2.5 && busines 3.5
+	const toggleSidebar = () => {
+		if (process === "order") setProcess("check-route");
+		else setProcess("order");
+	};
 
-  const toggleSidebar = () => {
-    if (process === "order") setProcess("check-route");
-    else setProcess("order");
-  };
-
-  return (
-    <div
-      className={cn(
-        "w-full h-44 bg-white bg-transparent fixed bottom-0 left-0 z-10 transition-all duration-700 ",
-        { "h-96": process === "order" },
-        { "h-5": process === "check-route" },
-        { "h-0": process === "cancel" }
-      )}>
-      <div
-        className={cn(
-          "absolute inset-x-[45%] -top-7 h-10 w-10 rounded-full bg-blue-400 py-2 px-2 transition-all duration-500",
-          { hidden: process === "start" || process === "cancel" },
-          { block: process === "order" },
-          { "rotate-180": process === "check-route" }
-        )}
-        onClick={toggleSidebar}>
-        <Image
-          src="/icons/chevron-down.svg"
-          width={28}
-          height={28}
-          alt="check-card"
-        />
-      </div>
-      <Container>
-        <TaxiAddressForm />
-        <TaxiTariffs />
-        <TaxiTripPrice />
-        <Button className="m-auto mt-3" theme="secondary" size="md">
-          Order
-        </Button>
-      </Container>
-    </div>
-  );
+	return (
+		<div
+			className={cn(
+				"w-full h-44 bg-white bg-transparent fixed bottom-0 left-0 z-10 transition-all duration-700 ",
+				{ "h-96": process === "order" },
+				{ "h-5": process === "check-route" },
+				{ "h-0": process === "cancel" }
+			)}>
+			<div
+				className={cn(
+					"absolute inset-x-[45%] -top-7 h-10 w-10 rounded-full bg-blue-400 py-2 px-2 transition-all duration-500",
+					{ hidden: process === "start" || process === "cancel" },
+					{ block: process === "order" },
+					{ "rotate-180": process === "check-route" }
+				)}
+				onClick={toggleSidebar}>
+				<Image
+					src="/icons/chevron-down.svg"
+					width={28}
+					height={28}
+					alt="check-card"
+				/>
+			</div>
+			<Container>
+				<TaxiAddressForm />
+				<TaxiTariffs setPrice={setDeposit} />
+				<TaxiTripPrice ratePerKm={deposit} />
+				<Button className="m-auto mt-3" theme="secondary" size="md">
+					Order
+				</Button>
+			</Container>
+		</div>
+	);
 };
 
 export default TaxiOrderSidebar;
