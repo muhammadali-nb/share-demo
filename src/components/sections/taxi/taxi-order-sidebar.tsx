@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+
 import Container from "@/components/ui/container";
 import TaxiAddressForm from "@/components/sections/taxi/taxi-address-form";
 import TaxiTariffs from "@/components/sections/taxi/taxi-tariffs";
 import Button from "@/components/ui/button";
-import cn from "classnames";
 import TaxiTripPrice from "@/components/sections/taxi/taxi-trip-price";
+
+import cn from "classnames";
 import { useMapStore } from "@/store/map-store";
 import Image from "next/image";
 
